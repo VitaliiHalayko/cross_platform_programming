@@ -34,28 +34,28 @@
 |    | 2         |            |
 
 
-
 ## Installation
 
 ```bash
   git clone https://github.com/VitaliiHalayko/cross_platform_programming
 ```
 
-
     
 ## Run Locally lab1
+
+Перейти в необхідну директорію:
 
 ```bash
   cd cross_platform_programming/lab1/lab1
 ```
 
-Зібрати застосунок
+Зібрати застосунок:
 
 ```bash
   dotnet build
 ```
 
-Запустити застосунок
+Запустити застосунок:
 
 ```bash
   dotnet run
@@ -64,20 +64,19 @@
 
 ## Test lab1
 
-Дана інформація буде продубльована для кожної лаборатоної роботи з вказанням точного шляху
-
+Перейти в необхідну директорію:
 
 ```bash
   cd cross_platform_programming/lab1/lab1.Tests
 ```
 
-Зібрати застосунок
+Зібрати застосунок:
 
 ```bash
   dotnet build
 ```
 
-Протестувати застосунок
+Протестувати застосунок:
 
 ```bash
   dotnet test
