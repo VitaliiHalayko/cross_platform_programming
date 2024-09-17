@@ -1,5 +1,6 @@
 # Лабораторні роботи з дисципліни "Кросплатформне програмування"
 
+1. [Lab1](https://github.com/VitaliiHalayko/cross_platform_programming/tree/master/lab1)
 
 ## Виконав
 студент 3 курсу групи ІПЗ-34мс Галайко Віталій
