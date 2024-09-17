@@ -3,15 +3,14 @@
 1. [Lab1](https://github.com/VitaliiHalayko/cross_platform_programming/tree/master/lab1)
 
 ## Виконав
-студент 3 курсу групи ІПЗ-34мс Галайко Віталій
 
+студент 3 курсу групи ІПЗ-34мс Галайко Віталій
 
 ## Installation
 
 ```bash
   git clone https://github.com/VitaliiHalayko/cross_platform_programming
 ```
-
 
 ## Run Locally labN (N - номер лр)
 
@@ -34,7 +33,6 @@
 ```bash
   dotnet run
 ```
-
 
 ## Test labN (N - номер лр)
 
