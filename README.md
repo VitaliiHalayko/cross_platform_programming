@@ -14,44 +14,32 @@
 
 ## Run Locally labN (N - номер лр)
 
-Дана інформація буде продубльована для кожної лабораторної роботи з вказанням точного шляху до файлів для запуску та тестування
-
-Перейти в необхідну директорію (N - номер лр):
-
-```bash
-  cd cross_platform_programming/labN/labN
-```
+Дана інформація буде продубльована для кожної лабораторної роботи з вказанням точного шляху до файлів для запуску та тестування (N - номер лр):
 
 Зібрати застосунок:
 
 ```bash
-  dotnet build
+  dotnet msbuild build.proj /p:Solution=labN /t:Build
 ```
 
 Запустити застосунок:
 
 ```bash
-  dotnet run
+  dotnet msbuild build.proj /p:Solution=labN /t:Run
 ```
 
 ## Test labN (N - номер лр)
 
-Дана інформація буде продубльована для кожної лабораторної роботи з вказанням точного шляху до файлів для запуску та тестування
-
-Перейти в необхідну директорію (N - номер лр):
+Дана інформація буде продубльована для кожної лабораторної роботи з вказанням точного шляху до файлів для запуску та тестування (N - номер лр):
 
 ```bash
-  cd cross_platform_programming/labN/labN.Tests
+  dotnet msbuild build.proj /p:Solution=labN /t:Test
 ```
 
-Зібрати застосунок:
+### Наприклад, до лабораторної роботи 1:
 
 ```bash
-  dotnet build
-```
-
-Протестувати застосунок:
-
-```bash
-  dotnet test
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Build
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Run
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Test
 ```

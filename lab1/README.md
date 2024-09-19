@@ -43,41 +43,30 @@
     
 ## Run Locally lab1
 
-Перейти в необхідну директорію:
-
-```bash
-  cd cross_platform_programming/lab1/lab1
-```
-
 Зібрати застосунок:
 
 ```bash
-  dotnet build
+  dotnet msbuild build.proj /p:Solution=labN /t:Build
 ```
 
 Запустити застосунок:
 
 ```bash
-  dotnet run
+  dotnet msbuild build.proj /p:Solution=labN /t:Run
 ```
 
 
 ## Test lab1
 
-Перейти в необхідну директорію:
-
 ```bash
-  cd cross_platform_programming/lab1/lab1.Tests
+  dotnet msbuild build.proj /p:Solution=labN /t:Test
 ```
 
-Зібрати застосунок:
+
+### Дії загалом до лабораторної роботи 1:
 
 ```bash
-  dotnet build
-```
-
-Протестувати застосунок:
-
-```bash
-  dotnet test
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Build
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Run
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Test
 ```
