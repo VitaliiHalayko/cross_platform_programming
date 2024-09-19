@@ -46,20 +46,20 @@
 Зібрати застосунок:
 
 ```bash
-  dotnet msbuild build.proj /p:Solution=labN /t:Build
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Build
 ```
 
 Запустити застосунок:
 
 ```bash
-  dotnet msbuild build.proj /p:Solution=labN /t:Run
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Run
 ```
 
 
 ## Test lab1
 
 ```bash
-  dotnet msbuild build.proj /p:Solution=labN /t:Test
+  dotnet msbuild build.proj /p:Solution=lab1 /t:Test
 ```
 
 
