@@ -1,8 +1,10 @@
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("lab1.Tests")]
-namespace lab1{
-	public static class IO {
+namespace lab1
+{
+	public static class IO 
+	{
 		private const string inputFilePath = "INPUT.txt";
 		private const string outputFilePath = "OUTPUT.txt";
 
