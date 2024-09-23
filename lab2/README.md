@@ -24,18 +24,17 @@
 
 **Приклади**
 
-| №  | INPUT.TXT                             | OUTPUT.TXT |
-|----|---------------------------------------|------------|
-| 1  | 3                                     | 21         |
-|    | <span style="color: red;">8</span> 2 1  |            |
-|    | 1 2 <span style="color: red;">6</span>  |            |
-|    | 2 <span style="color: red;">7</span> 2  |            |
-| 2  | <span style="color: red;">8</span> 2 1 2 <span style="color: red;">3</span> | 27         |
-|    | 1 2 <span style="color: red;">6</span> 2 4 |            |
-|    | 2 <span style="color: red;">7</span> 2 <span style="color: red;">3</span> 4 |            |
-|    | 1 3 2 4 4                           |            |
-|    | 1 3 4 3 1                           |            |
-
+| №  | INPUT.TXT | OUTPUT.TXT |
+|----|-----------|------------|
+| 1  | 3         | 21         |
+|    | *8* 2 1     |            |
+|    | 1 2 *6*     |            |
+|    | 2 *7* 2     |            |
+| 2  | *8* 2 1 2 *3* | 27         |
+|    | 1 2 *6* 2 4 |            |
+|    | 2 *7* 2 *3* 4 |            |
+|    | 1 3 2 4 4 |            |
+|    | 1 3 4 3 1 |            |
 
 
 ## Installation
