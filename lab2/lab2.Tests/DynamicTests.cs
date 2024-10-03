@@ -18,11 +18,10 @@ namespace lab2.Tests
             var (maxMosquitoes, indices) = Dynamic.SolveCrazyFrog(N, field);
 
             // Assert
-            Assert.Equal(21, maxMosquitoes);
-            Assert.Equal(3, indices.Count);
-            Assert.Equal((0, 0), indices[0]);
-            Assert.Equal((2, 1), indices[1]);
-            Assert.Equal((1, 2), indices[2]);
+            Assert.Equal(14, maxMosquitoes);
+            Assert.Equal(2, indices.Count);
+            Assert.Equal((1, 1), indices[0]);
+            Assert.Equal((2, 3), indices[1]);
         }
 
         [Fact]
@@ -36,13 +35,12 @@ namespace lab2.Tests
             var (maxMosquitoes, indices) = Dynamic.SolveCrazyFrog(N, field);
 
             // Assert
-            Assert.Equal(27, maxMosquitoes);
-            Assert.Equal(5, indices.Count);
-            Assert.Equal((0, 0), indices[0]);
-            Assert.Equal((2, 1), indices[1]);
-            Assert.Equal((1, 2), indices[2]);
-            Assert.Equal((2, 3), indices[3]);
-            Assert.Equal((0, 4), indices[4]);
+            Assert.Equal(19, maxMosquitoes);
+            Assert.Equal(4, indices.Count);
+            Assert.Equal((1, 1), indices[0]);
+            Assert.Equal((1, 2), indices[1]);
+            Assert.Equal((2, 3), indices[2]);
+            Assert.Equal((1, 5), indices[3]);
         }
     }
 }

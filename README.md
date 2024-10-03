@@ -1,6 +1,8 @@
 # Лабораторні роботи з дисципліни "Кросплатформне програмування"
 
 1. [Lab1](https://github.com/VitaliiHalayko/cross_platform_programming/tree/master/lab1)
+1. [Lab2](https://github.com/VitaliiHalayko/cross_platform_programming/tree/master/lab2)
+1. [Lab3](https://github.com/VitaliiHalayko/cross_platform_programming/tree/master/lab3)
 
 ## Виконав
 
