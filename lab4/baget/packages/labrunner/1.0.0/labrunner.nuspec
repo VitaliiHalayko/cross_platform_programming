@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>LabRunner</id>
+    <version>1.0.0</version>
+    <authors>LabRunner</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="2417f9dab3a4720da766309ad1d058c697d3e458" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="VH" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="McMaster.Extensions.CommandLineUtils" version="4.1.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
