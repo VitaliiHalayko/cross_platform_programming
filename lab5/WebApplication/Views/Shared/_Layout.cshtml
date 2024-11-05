@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - MyApp</title>
+    <link rel="stylesheet" href="~/css/site.css">
+</head>
+<body>
+<div class="navbar">
+    <a asp-controller="Home" asp-action="Index">Головна</a>
+    <a asp-controller="Account" asp-action="Login">Вхід</a>
+    <a asp-controller="Account" asp-action="Register">Реєстрація</a>
+    <a asp-controller="Account" asp-action="Profile">Профіль</a>
+    <a asp-controller="Labs" asp-action="Lab1">Лабораторна 1</a>
+    <a asp-controller="Labs" asp-action="Lab2">Лабораторна 2</a>
+    <a asp-controller="Labs" asp-action="Lab3">Лабораторна 3</a>
+</div>
+
+<div class="content">
+    @RenderBody()
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

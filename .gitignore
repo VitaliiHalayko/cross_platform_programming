@@ -95,3 +95,62 @@ wwwroot/lib/
 
 # Azure DevOps
 .vs/
+
+# Папки з артефактами збірки
+/bin/
+/obj/
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.appx
+*.appxbundle
+
+# Папки для NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.sln.ide
+
+# Кеші IDE
+.idea/
+*.sln.iml
+*.user
+*.suo
+*.userprefs
+
+# Налаштування Visual Studio
+.vs/
+.vscode/
+
+# Файли, що генеруються під час розробки
+*.dbmdl
+*.dbproj.schemaview
+*.dbproj
+*.dbml
+*.dbml.layout
+
+# Кеши IntelliJ IDEA
+out/
+*.iws
+*.iml
+*.ipr
+*.idea/
+
+# Файли резервних копій
+*~
+*.bak
+*.swp
+*.tmp
+
+# Вихідні дані
+*.log
+
+# Ігнорування файлів середовища
+.env
+*.env.local
+
+# Ігнорування специфічних для ОС файлів
+Thumbs.db
+.DS_Store
