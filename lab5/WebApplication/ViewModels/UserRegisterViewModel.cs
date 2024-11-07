@@ -14,7 +14,7 @@ public class UserRegisterViewModel
 
     [Required]
     [DataType(DataType.Password)]
-    [StringLength(30, MinimumLength = 8, ErrorMessage = "Пароль має бути від 8 до 16 символів.")]
+    [StringLength(16, MinimumLength = 8, ErrorMessage = "Пароль має бути від 8 до 16 символів.")]
     [RegularExpression(@"^(?=.*[0-9])(?=.*[!@#$%^&*(),.?""{}|<>_])(?=.*[A-Z]).*$", 
         ErrorMessage = "Пароль має містити принаймні одну цифру, один спеціальний знак (зокрема _, якщо потрібно) і одну велику літеру.")]
     public required string Password { get; set; }
