@@ -1,0 +1,24 @@
+﻿@model IEnumerable<DBWebApp.Models.RefShippingMethod>
+@{
+    ViewData["Title"] = "Методи доставки замовлень";
+}
+<h2>Методи доставки замовлення</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Код методу доставки</th>
+        <th>Опис методу доставки</th>
+        <th>Додатково</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var status in Model)
+    {
+        <tr>
+            <td>@status.ShippingMethodCode</td>
+            <td><a href="@Url.Action("RefShippingMethodsDetails", new { id = status.ShippingMethodCode })">@status.ShippingMethodDesc</a></td>
+            <td>@status.ShippingCharges</td>
+            </tr>
+    }
+    </tbody>
+</table>

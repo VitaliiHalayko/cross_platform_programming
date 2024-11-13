@@ -1,0 +1,25 @@
+﻿@model DBWebApp.Models.Product
+
+<h2>Product Details</h2>
+
+<div>
+    <h4>@Model.ProductName</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Product ID</dt>
+        <dd class="col-sm-10">@Model.ProductId</dd>
+
+        <dt class="col-sm-2">Category Code</dt>
+        <dd class="col-sm-10">@Model.ProductCategoryCode</dd>
+
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.ProductName</dd>
+
+        <dt class="col-sm-2">Details</dt>
+        <dd class="col-sm-10">@Model.OtherProductDetails</dd>
+
+        <dt class="col-sm-2">Category</dt>
+        <dd class="col-sm-10">@Model.ProductCategory?.ProductCategoryDesc</dd>
+    </dl>
+    <a asp-controller="Product" asp-action="Data" class="btn btn-secondary">Back to List</a>
+</div>
