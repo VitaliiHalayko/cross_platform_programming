@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DBWebApp.Models.RefOrderStatus>
+@{
+ViewData["Title"] = "Статуси замовлень";
+}
+<h2>Статуси замовлення</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Код статусу</th>
+        <th>Опис статусу</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var status in Model)
+    {
+        <tr>
+            <td>@status.OrderStatusCode</td>
+            <td><a href="@Url.Action("RefOrderStatusDetails", new { id = status.OrderStatusCode })">@status.OrderStatusDesc</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
