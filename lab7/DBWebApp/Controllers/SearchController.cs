@@ -12,7 +12,6 @@ using System.ComponentModel.DataAnnotations;
 using DBWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-[Authorize]
 [Route("dbapi/[controller]")]
 [ApiController]
 public class SearchController : Controller
@@ -70,6 +69,6 @@ public class SearchController : Controller
             order.OrderPlacedDatetime = TimeZoneInfo.ConvertTimeFromUtc(order.OrderPlacedDatetime, ukraineTimeZone);
         }
 
-        return Json(result);  // Return JSON
+        return Ok(result);  // Return Ok
     }
 }

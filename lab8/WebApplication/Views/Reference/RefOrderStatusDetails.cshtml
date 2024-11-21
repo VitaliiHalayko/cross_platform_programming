@@ -1,0 +1,23 @@
+﻿@model DBWebApp.Models.RefOrderStatus
+
+@{
+    ViewData["Title"] = "Деталі статусів замовлення";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>Details of Order Status: @Model.OrderStatusCode</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Order Status Code:</dt>
+            <dd class="col-sm-9">@Model.OrderStatusCode</dd>
+
+            <dt class="col-sm-3">Order Status Description:</dt>
+            <dd class="col-sm-9">@Model.OrderStatusDesc</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-controller="Reference" asp-action="RefOrderStatuses" class="btn btn-primary">Back to List</a>
+    </div>
+</div>

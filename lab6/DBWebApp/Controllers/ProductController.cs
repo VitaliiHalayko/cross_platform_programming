@@ -1,15 +1,15 @@
 ﻿namespace DBWebApp.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-using DBWebApp.Data;
 using Microsoft.EntityFrameworkCore;
+using DBWebApp.Data;
 using System.Threading.Tasks;
+using DBWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-[Authorize]
 [Route("dbapi/[controller]")]
 [ApiController]
-public class ProductController : Controller
+public class ProductController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
 
@@ -23,7 +23,7 @@ public class ProductController : Controller
     public async Task<IActionResult> Index()
     {
         var products = await _context.Products.ToListAsync(); // Await completion of the query
-        return Json(products);  // Return products as JSON
+        return Ok(products); // Return products as JSON
     }
 
     // Action to view a single product by ID, returning data as JSON
@@ -31,7 +31,7 @@ public class ProductController : Controller
     public async Task<IActionResult> DetailsDB(int id)
     {
         var product = await _context.Products
-            .FirstOrDefaultAsync(p => p.ProductId == id);  // Await completion of the query
-        return Json(product);  // Return product as JSON
+            .FirstOrDefaultAsync(p => p.ProductId == id); // Await completion of the query
+        return Ok(product); // Return product as JSON
     }
 }

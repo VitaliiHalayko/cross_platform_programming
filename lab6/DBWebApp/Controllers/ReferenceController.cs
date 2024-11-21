@@ -3,11 +3,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DBWebApp.Data;
-using System.Threading.Tasks;  // Для использования Task
+using System.Threading.Tasks;
 using DBWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-[Authorize]
 [Route("dbapi/[controller]")]
 [ApiController]
 public class ReferenceController : Controller
@@ -24,7 +23,7 @@ public class ReferenceController : Controller
     public async Task<IActionResult> RefOrderStatusesDB()
     {
         var statuses = await _context.RefOrderStatuses.ToListAsync();  // Asynchronous request to get all order statuses
-        return Json(statuses); 
+        return Ok(statuses); 
     }
 
     // Detailed information about each order status
@@ -33,7 +32,7 @@ public class ReferenceController : Controller
     {
         var details = await _context.RefOrderStatuses
             .FirstOrDefaultAsync(s => s.OrderStatusCode == id);  // Asynchronous request to get order status by ID
-        return Json(details);
+        return Ok(details);
     }
 
     // List of all product categories
@@ -41,7 +40,7 @@ public class ReferenceController : Controller
     public async Task<IActionResult> RefShippingMethodsDB()
     {
         var methods = await _context.RefShippingMethods.ToListAsync();  // Asynchronous request to get all shipping methods
-        return Json(methods);
+        return Ok(methods);
     }
 
     // Detailed information about each shipping method
@@ -50,6 +49,6 @@ public class ReferenceController : Controller
     {
         var details = await _context.RefShippingMethods
             .FirstOrDefaultAsync(s => s.ShippingMethodCode == id);  // Asynchronous request to get shipping method by ID
-        return Json(details);
+        return Ok(details);
     }
 }

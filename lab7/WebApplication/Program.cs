@@ -7,13 +7,51 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
-
+using WebApplication.Services;
 
 var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
 
-// Database configuration
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add API Versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.ReportApiVersions = true;  // Додаємо можливість показувати версії API в відповіді
+    options.AssumeDefaultVersionWhenUnspecified = true; // Використовуємо версію за замовчуванням
+    options.DefaultApiVersion = new ApiVersion(2, 0);  // Встановлюємо версію за замовчуванням
+});
+
+var dbProvider = "Postgres";
+var dbHost = "localhost";
+var dbName = "kpp";
+
+string connectionString = null;
+
+switch (dbProvider)
+{
+    case "SqlServer":
+        connectionString = $"Server={dbHost};Database={dbName};Trusted_Connection=True;TrustServerCertificate=True;";
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+        break;
+
+    case "Postgres":
+        var dbUser = "postgres";
+        var dbPassword = "postgres";
+        connectionString = $"Host={dbHost};Database={dbName};Username={dbUser};Password={dbPassword};";
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(connectionString));
+        break;
+
+    case "Sqlite":
+        connectionString = $"Data Source={dbHost};";
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+        break;
+
+    case "InMemory":
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseInMemoryDatabase("HealthcareDb"));
+        break;
+
+    default:
+        throw new Exception("Unsupported database type.");
+}
 
 // HTTP Client configuration
 builder.Services.AddHttpClient("ApiClient", client =>
@@ -39,14 +77,6 @@ builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("RequireAuthenticatedUser", policy =>
         policy.RequireAuthenticatedUser());
-});
-
-// Add API Versioning
-builder.Services.AddApiVersioning(options =>
-{
-    options.ReportApiVersions = true;  // Додаємо можливість показувати версії API в відповіді
-    options.AssumeDefaultVersionWhenUnspecified = true; // Використовуємо версію за замовчуванням
-    options.DefaultApiVersion = new ApiVersion(2, 0);  // Встановлюємо версію за замовчуванням
 });
 
 // Services
@@ -88,7 +118,6 @@ app.UseCors("ApiCorsPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Map controllers
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

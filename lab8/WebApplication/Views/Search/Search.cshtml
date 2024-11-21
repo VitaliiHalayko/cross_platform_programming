@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DBWebApp.Models.CustomerOrder>
+
+<h1>Розширений пошук замовлень</h1>
+<form method="post" action="@Url.Action("Search", "Search")">
+    <label for="StartDate">Дата початку:</label>
+    <input type="datetime-local" name="StartDate" />
+
+    <label for="EndDate">Дата кінця:</label>
+    <input type="datetime-local" name="EndDate" />
+
+    <label for="Statuses">Статуси замовлення:</label>
+    <select name="Statuses" multiple>
+        <option value="Cancelled">Cancelled</option>
+        <option value="Delivered">Delivered</option>
+        <option value="Paid">Paid</option>
+    </select>
+
+    <label for="ShippingMethodStart">Метод доставки (початок):</label>
+    <input type="text" name="ShippingMethodStart" />
+
+    <label for="ShippingMethodEnd">Метод доставки (кінець):</label>
+    <input type="text" name="ShippingMethodEnd" />
+
+    <button type="submit">Пошук</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Номер замовлення</th>
+        <th>Статус</th>
+        <th>Метод доставки</th>
+        <th>Дата замовлення</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.OrderId</td>
+            <td>@order.OrderStatus.OrderStatusDesc</td>
+            <td>@order.ShippingMethod.ShippingMethodDesc</td>
+            <td>@order.OrderPlacedDatetime.ToShortDateString()</td>
+        </tr>
+    }
+    </tbody>
+</table>

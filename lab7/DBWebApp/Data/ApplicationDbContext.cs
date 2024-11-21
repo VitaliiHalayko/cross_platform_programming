@@ -5,7 +5,7 @@ using DBWebApp.Models;
 
 public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration configuration)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
@@ -26,34 +26,6 @@ public class ApplicationDbContext : DbContext
     public DbSet<RefOutcomeCode> RefOutcomeCodes { get; set; }
     public DbSet<RefAddressType> RefAddressTypes { get; set; }
     public DbSet<RefPremisesType> RefPremisesTypes { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        var dbConfiguration = new DbConfiguration
-        {
-            DatabaseProvider = "PostgreSQL", // Example: switch to MS-SQL if needed
-            ConnectionString = "Host=localhost;Database=kpp;Username=postgres;Password=postgres"
-        };
-
-        // You already have optionsBuilder as a parameter, no need to redefine it here
-        switch (dbConfiguration.DatabaseProvider)
-        {
-            case "SqlServer":
-                optionsBuilder.UseSqlServer(dbConfiguration.ConnectionString);
-                break;
-            case "PostgreSQL":
-                optionsBuilder.UseNpgsql(dbConfiguration.ConnectionString);
-                break;
-            case "Sqlite":
-                optionsBuilder.UseSqlite(dbConfiguration.ConnectionString);
-                break;
-            case "InMemory":
-                optionsBuilder.UseInMemoryDatabase("InMemoryDb");
-                break;
-            default:
-                throw new Exception("Unsupported database provider.");
-        }
-    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

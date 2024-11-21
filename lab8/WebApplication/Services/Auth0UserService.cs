@@ -1,4 +1,4 @@
-﻿namespace DBWebApp.Services;
+﻿namespace WebApplication.Services;
 
 using Auth0.ManagementApi;
 using Auth0.ManagementApi.Models;
